@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "rootDir": "./src",
+        "target": "es5",
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "skipLibCheck": true,
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "module": "es2015",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "types": [
+            "node",
+            "jasmine"
+        ],
+        "exclude": [
+            "test.ts",
+            "wallabyTest.ts",
+            "**/*.spec.ts"
+          ]
+    },
+    "awesomeTypeScriptLoaderOptions": {
+        "useWebpackText": true
+    }
+}
