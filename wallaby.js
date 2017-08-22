@@ -1,15 +1,11 @@
 var wallabyWebpack = require('wallaby-webpack');
 var path = require('path');
 
-var compilerOptions = Object.assign(
-  require('./tsconfig.json').compilerOptions,
-  require('./src/tsconfig.spec.json').compilerOptions);
-
 module.exports = function (wallaby) {
 
   var webpackPostprocessor = wallabyWebpack({
     entryPatterns: [
-      'src/wallabyTest.js',
+      'src/app/wallabyTest.js',
       'src/**/*spec.js'
     ],
 
@@ -17,7 +13,7 @@ module.exports = function (wallaby) {
       loaders: [
         {test: /\.css$/, loader: 'raw-loader'},
         {test: /\.html$/, loader: 'raw-loader'},
-        {test: /\.ts$/, loader: '@ngtools/webpack', include: /node_modules/, query: {tsConfigPath: 'tsconfig.json'}},
+        {test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'], include: /node_modules/},
         {test: /\.js$/, loader: 'angular2-template-loader', exclude: /node_modules/},
         {test: /\.json$/, loader: 'json-loader'},
         {test: /\.styl$/, loaders: ['raw-loader', 'stylus-loader']},
@@ -51,14 +47,11 @@ module.exports = function (wallaby) {
     ],
 
     tests: [
-      {pattern: 'src/**/*spec.ts', load: false}
+      {pattern: 'src/**/*spec.ts', load: false},
+      '!src/app/main.spec.ts'
     ],
 
     testFramework: 'jasmine',
-
-    compilers: {
-      '**/*.ts': wallaby.compilers.typeScript(compilerOptions)
-    },
     
     middleware: function (app, express) {
       var path = require('path');
