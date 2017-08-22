@@ -1,4 +1,8 @@
 {
+    "angularCompilerOptions": {
+      "entryModule": "app/app.module#AppModule",
+      "genDir": "./ngfactory"
+    },
     "compilerOptions": {
         "baseUrl": "./src",
         "experimentalDecorators": true,
@@ -6,28 +10,24 @@
         "rootDir": "./src",
         "target": "es5",
         "lib": [
-            "es2015",
+            "es2016",
             "dom"
         ],
         "skipLibCheck": true,
         "typeRoots": [
             "node_modules/@types"
         ],
-        "module": "es2015",
-        "noImplicitAny": false,
-        "sourceMap": true,
         "emitDecoratorMetadata": true,
-        "types": [
-            "node",
-            "jasmine"
-        ],
         "exclude": [
-            "test.ts",
+            "node_modules",
             "wallabyTest.ts",
             "**/*.spec.ts"
-          ]
-    },
-    "awesomeTypeScriptLoaderOptions": {
-        "useWebpackText": true
+          ],
+      "importHelpers": true,
+      "module": "es2015",
+      "noEmitHelpers": true,
+      "pretty": true,
+      "sourceMap": true,
+      "strictNullChecks": false
     }
-}
+  }
