@@ -17,3 +17,4 @@ TestBed.initTestEnvironment(
     BrowserDynamicTestingModule,
     platformBrowserDynamicTesting()
 );
+TestBed.initTestEnvironment = () => {};
