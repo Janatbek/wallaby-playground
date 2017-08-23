@@ -2,7 +2,13 @@ import { FileSizePipe } from './file-size.pipe';
 
 describe('FileSizePipe', () => {
 
-  beforeAll
+  beforeAll(() => {
+    TestBed.resetTestEnvironment();
+    TestBed.initTestEnvironment(
+        BrowserDynamicTestingModule,
+        platformBrowserDynamicTesting()
+    );
+  })
 
   describe('Isolate FileSizePipe test', () => {
 
